@@ -52,8 +52,8 @@ if [ ! "$version" = "$downloaded_version" ] ; then
 	rm -rf $PWD/wpilib/reflib/
 
 	# clean up and delete temp files
-	#rm -rf $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
-	#rm -rf $PWD/edu.wpi.first.wpilib.plugins.core_2018.1.1.jar
+	rm -rf $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
+	rm -rf $PWD/edu.wpi.first.wpilib.plugins.core_2018.1.1.jar
 	rm -rf $PWD/wpilib-cpp/
 	rm -rf $PWD/wpilib-core/
 else
