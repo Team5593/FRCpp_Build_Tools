@@ -5,7 +5,7 @@ ECHO ^.get-ctre^.bat: Downloading CTRE^.^.^.
 if defined ProgramFiles(x86) (
     for %%x in (wget64.exe) do (SET WGET=%%~$PATH:x)
     if defined WGET (
-        wget64.exe -r -nd --progress=bar http://www.ctr-electronics.com//downloads/lib/CTRE_FRCLibs_NON-WINDOWS.zip
+        wget64.exe -r -nd --progress=bar http://www.ctr-electronics.com//downloads/lib/CTRE_FRCLibs_NON-WINDOWS_v5.0.3.3.zip
         GOTO get-ctre
     ) else (
         ECHO ^.get-ctre^.bat: Please download wget64 and add it to the PATH
@@ -15,7 +15,7 @@ if defined ProgramFiles(x86) (
     REM assuming 32 bit
     for %%x in (wget.exe) do (SET WGET=%%~$PATH:x)
     if defined WGET (
-        wget.exe -r -nd --progress=bar http://www.ctr-electronics.com//downloads/lib/CTRE_FRCLibs_NON-WINDOWS.zip
+        wget.exe -r -nd --progress=bar http://www.ctr-electronics.com//downloads/lib/CTRE_FRCLibs_NON-WINDOWS_v5.0.3.3.zip
         GOTO get-ctre
     ) else (
         ECHO ^.get-ctre^.bat: Please download wget ^(32 bit^)^. Add it to the PATH

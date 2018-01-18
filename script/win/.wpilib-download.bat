@@ -7,7 +7,7 @@ REM To ensure the installation of the latest version, run nmake -f Makefile.win 
 if defined ProgramFiles(x86) (
     for %%x in (wget64.exe) do (SET WGET=%%~$PATH:x)
     if defined WGET (
-        wget64.exe http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+        wget64.exe http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
         GOTO wpilib-download
     ) else (
         ECHO ^.wpilib-download^.bat: Please download wget64^. Add it to the PATH
@@ -17,7 +17,7 @@ if defined ProgramFiles(x86) (
     REM assuming 32 bit
     for %%x in (wget.exe) do (SET WGET=%%~$PATH:x)
     if defined WGET (
-        wget.exe http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+        wget.exe http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
         GOTO wpilib-download
     ) else (
         ECHO ^.wpilib-download.bat: Please download wget ^(32 bit^)^. Add it to the PATH
@@ -29,7 +29,7 @@ REM if there was no error, unzip
 :wpilib-download
 mkdir wpilib
 CD wpilib
-unzip ../edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+unzip ../edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
 rmdir edu /S /Q
 rmdir META-INF /S /Q
 rmdir plugin.xml /S /Q
@@ -37,7 +37,7 @@ unzip resources\cpp.zip
 ECHO ^.wpilib-download.bat: Cleaning up...
 rmdir resources\ /S /Q
 CD ..
-del edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+del edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
 GOTO end
 
 :error
