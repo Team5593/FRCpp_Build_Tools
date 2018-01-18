@@ -4,8 +4,7 @@
 #make
 
 echo "deploy.sh: Beginning deploy process..."
-if [ -e "TEAM_NAME" ]
-    then
+if [ -e "TEAM_NAME" ]; then
     team=`cat TEAM_NAME`
 else
     echo "Enter team name: "
