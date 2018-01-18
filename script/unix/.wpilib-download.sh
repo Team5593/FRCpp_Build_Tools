@@ -23,17 +23,17 @@ printf "Version: $version Current: $downloaded_version\n"
 echo "WPILib Download: $PWD"
 
 if [ ! "$version" = "$downloaded_version" ] ; then
-	wget -r -nd --progress=bar http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+	wget -r -nd --progress=bar http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
     rm -rf wpilib/
 	mkdir wpilib
-	unzip -q $PWD/edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar -d $PWD/wpilib/
+	unzip -q $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar -d $PWD/wpilib/
 	rm -rf wpilib/edu
 	rm -rf wpilib/META-INF
 	rm -rf wpilib/plugin.xml
 	unzip -q $PWD/wpilib/resources/cpp.zip -d $PWD/wpilib/
 	rm -rf wpilib/resources
 	#rm -rf cpp.zip
-	rm -rf edu.wpi.first.wpilib.plugins.cpp_2017.1.1.jar
+	rm -rf edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
 
 	#cp -r allwpilib/wpilibc/athena/shared wpilib/athena/shared
 else
