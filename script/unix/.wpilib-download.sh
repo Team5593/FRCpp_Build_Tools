@@ -23,19 +23,32 @@ printf "Version: $version Current: $downloaded_version\n"
 echo "WPILib Download: $PWD"
 
 if [ ! "$version" = "$downloaded_version" ] ; then
-	wget -r -nd --progress=bar http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
-    rm -rf wpilib/
-	mkdir wpilib
-	unzip -q $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar -d $PWD/wpilib/
-	rm -rf wpilib/edu
-	rm -rf wpilib/META-INF
-	rm -rf wpilib/plugin.xml
-	unzip -q $PWD/wpilib/resources/cpp.zip -d $PWD/wpilib/
-	rm -rf wpilib/resources
-	#rm -rf cpp.zip
-	rm -rf edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
+	# download core and cpp pugins
+	wget -r -nd --no-clobber --progress=bar http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
+	wget -r -nd --no-clobber --progress=bar http://first.wpi.edu/FRC/roborio/release/eclipse/plugins/edu.wpi.first.wpilib.plugins.core_2018.1.1.jar 
 
-	#cp -r allwpilib/wpilibc/athena/shared wpilib/athena/shared
+	# get rid of old data
+	rm -rf $PWD/wpilib/
+	mkdir $PWD/wpilib/
+
+	# unpack and extract from cpp
+	rm -rf $PWD/wpilib-cpp/
+	unzip -q $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar -d $PWD/wpilib-cpp/
+	unzip -q $PWD/wpilib-cpp/resources/cpp.zip -d $PWD/wpilib/
+	rm -rf $PWD/edu.wpi.first.wpilib.plugins.cpp_2018.1.1.jar
+	rm -rf $PWD/wpilib-cpp/
+
+	# get rid of irrelivant folders
+	rm -rf $PWD/wpilib/doxygen/
+
+	# unpack and extract from core
+	rm -rf $PWD/wpilib-core/
+	unzip -qo $PWD/edu.wpi.first.wpilib.plugins.core_2018.1.1.jar -d $PWD/wpilib-core/
+	unzip -qo $PWD/wpilib-core/resources/common.zip -d $PWD/wpilib-core/
+	mkdir $PWD/wpilib/lib/
+	mv $PWD/wpilib-core/lib/linux/athena/shared/* $PWD/wpilib/lib/
+	rm -rf $PWD/edu.wpi.first.wpilib.plugins.core_2018.1.1.jar
+	rm -rf $PWD/wpilib-core/
 else
 	echo "Already at latest WPILIB version"
 fi
