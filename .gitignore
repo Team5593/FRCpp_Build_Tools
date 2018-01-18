@@ -44,6 +44,9 @@ FRCUserProgram
 #Compressed files
 *.zip
 
+# src
+src/*
+
 #CTRE
 CTRE/
 
