@@ -4,8 +4,14 @@
 #make
 
 echo "deploy.sh: Beginning deploy process..."
-echo "Enter team name: "
-read team
+if [ -e "TEAM_NAME" ]
+    then
+    team=`cat TEAM_NAME`
+else
+    echo "Enter team name: "
+    read team
+fi
+
 printf "Team $team\n"
 team_ip=""
 os=$(uname | tr '[:upper:]' '[:lower:]')
