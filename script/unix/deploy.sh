@@ -43,7 +43,7 @@ if [[ ! "$os" == *"cygwin"* || ! "$os" == *"nt"* ]]; then
             ping -c 4 "10.$team_ip.2" ; ethernet=$?
             if [ $ethernet -ne 0 ] ; then
                 echo "Connection failed on guess: 10.$team_ip.2!"
-                echo "Connection to roboRIO failed on all points!"
+                echo "Deploy failed!"
             else
                 ssh "lvuser@10.$team_ip.2" "killall -9 FRCUserProgram && rm ~/FRCUserProgram && exit"
 
@@ -69,7 +69,7 @@ else
             ping -n 4 "10.$team_ip.2" ; ethernet=$?
             if [ $ethernet -ne 0 ] ; then
                 echo "Connection failed on guess: 10.$team_ip.2!"
-                echo "Connection to roboRIO failed on all points!"
+                echo "Deploy failed!"
             else
                 ssh "lvuser@10.$team_ip.2" "killall -9 FRCUserProgram && rm ~/FRCUserProgram && exit"
 
